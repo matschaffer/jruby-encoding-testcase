@@ -1,3 +1,8 @@
 task :read do
-  File.open('kitten.jpg', 'rb').each { |f| }
+  begin
+    File.open('kitten.jpg', 'rb').each { |f| }
+  rescue Exception => e
+    puts "Error class: " + e.class.to_s
+    raise e
+  end
 end
